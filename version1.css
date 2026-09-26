@@ -13,20 +13,15 @@
     --rose: #E38B8B;
     --dark: #1a1a1a;
     --card: #ffffff;
-    --text: #1a1a1a;
-    --text-light: #666666;
+    --light: #1a1a1a;
     --border: #e8e8e0;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #fffff5, #f5f5f0);
-    color: var(--text);
-    line-height: 1.6;
-    min-height: 100vh;
+    color: var(--dark);
 }
 
-/* ===== HEADER ===== */
 header {
     background: linear-gradient(135deg, var(--gold), var(--teal), var(--purple), var(--rose));
     color: var(--dark);
@@ -35,52 +30,54 @@ header {
     font-weight: 700;
 }
 
-header h1 { 
-    font-size: 2.8rem; 
-    margin-bottom: 0.5rem; 
-}
+header h1 { font-size: 2.8rem; margin-bottom: 0.5rem; }
+header p { font-size: 1.1rem; opacity: 0.9; }
 
-header p { 
-    font-size: 1.1rem; 
-    opacity: 0.9; 
-}
-
-/* ===== NAVIGATION ===== */
-nav.navbar {
-    background: rgba(255, 255, 255, 0.98) !important;
+nav {
+    background: rgba(237, 237, 240, 0.95);
     padding: 1rem;
     border-bottom: 2px solid var(--border);
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.navbar-brand {
-    color: var(--gold) !important;
-    font-weight: 700;
-    font-size: 1.3rem;
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.navbar-nav .nav-link {
-    color: var(--text-light) !important;
+nav a {
+    color: #111316;
+    text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
-    margin: 0 0.5rem;
+    position: relative;
 }
-
-.navbar-nav .nav-link:hover {
-    color: var(--gold) !important;
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s;
 }
+nav a:hover { color: var(--gold); }
+nav a:hover::after { width: 100%; }
 
-/* ===== MAIN CONTAINER ===== */
 main {
     max-width: 1200px;
     margin: 3rem auto;
     padding: 0 1.5rem;
 }
 
-/* ===== SECTIONS ===== */
 section {
     background: var(--card);
     padding: 2.5rem;
@@ -88,7 +85,7 @@ section {
     border-radius: 12px;
     border: 1px solid var(--border);
     border-left: 4px solid var(--gold);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 section h2 {
@@ -98,29 +95,26 @@ section h2 {
 }
 
 section h3 {
-    color: var(--text);
+    color: var(--light);
     font-size: 1.2rem;
     margin: 1.5rem 0 1rem 0;
 }
 
-/* ===== PROFILE SECTION ===== */
 #profile {
     text-align: center;
 }
 
 #profile img {
-    width: 180px;
-    height: 180px;
+    width: 220px;
+    height: 240px;
     border-radius: 50%;
     border: 4px solid var(--gold);
     margin-bottom: 1.5rem;
-    object-fit: cover;
 }
 
 #profile h3 {
     font-size: 2.2rem;
     color: var(--gold);
-    margin: 1rem 0 0.3rem 0;
 }
 
 #profile > p {
@@ -130,7 +124,6 @@ section h3 {
     margin-bottom: 2rem;
 }
 
-/* ===== INFO GRID ===== */
 .info-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -145,16 +138,9 @@ section h3 {
     border-top: 3px solid var(--gold);
 }
 
-.info-item p { 
-    color: var(--text-light); 
-    margin: 0.5rem 0; 
-}
+.info-item p { color: #a8adb5; margin: 0.5rem 0; }
+.info-item strong { color: var(--gold); }
 
-.info-item strong { 
-    color: var(--gold); 
-}
-
-/* ===== SKILLS SECTION ===== */
 #skills ul {
     list-style: none;
     display: flex;
@@ -170,41 +156,34 @@ section h3 {
     padding: 0.8rem 1.5rem;
     border-radius: 50px;
     font-weight: 600;
-    cursor: pointer;
 }
 
-/* ===== TABLE (Bootstrap Styled) ===== */
-.table {
+table {
+    width: 100%;
     margin-top: 1.5rem;
+    border-collapse: collapse;
 }
 
-.table thead {
-    background: linear-gradient(135deg, var(--gold), var(--purple));
+thead {
+    background: linear-gradient(135deg, var(--card));
     color: var(--dark);
 }
 
-.table thead th {
-    border: none;
-    color: var(--dark);
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
 }
 
-.table tbody td {
-    color: var(--text-light);
-    border-color: var(--border);
-}
+td { color: #070808; }
+th { color: #060607; }
 
-.table tbody tr:hover {
-    background-color: rgba(212, 175, 122, 0.08);
-}
-
-/* ===== HOBBIES ===== */
 #hobbies li {
-    color: var(--text-light);
+    color: #0b0c0e;
     margin-bottom: 0.8rem;
     cursor: pointer;
 }
 
-/* ===== LINKS SECTION ===== */
 #links ul {
     list-style: none;
     display: flex;
@@ -221,7 +200,6 @@ section h3 {
     text-decoration: none;
     font-weight: 600;
     background: transparent;
-    transition: all 0.3s;
 }
 
 #links a:hover {
@@ -230,77 +208,72 @@ section h3 {
     border-color: transparent;
 }
 
-/* ===== FORM (Bootstrap Classes) ===== */
-.form-label {
-    color: var(--gold) !important;
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+label {
     font-weight: 600;
+    color: var(--gold);
     margin-bottom: 0.5rem;
 }
 
-.form-control, .form-select {
+input, select, textarea {
+    padding: 0.9rem;
     border: 2px solid var(--border);
     border-radius: 8px;
-    padding: 0.9rem;
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--text);
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--light);
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
-    transition: all 0.3s;
 }
 
-.form-control::placeholder {
-    color: var(--text-light);
+input::placeholder, textarea::placeholder {
+    color: #a8adb5;
 }
 
-.form-control:focus, .form-select:focus {
+input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--gold);
-    background: white;
-    box-shadow: 0 0 0 3px rgba(212, 175, 122, 0.1);
+    background: rgba(254, 254, 255, 0.8);
 }
 
-textarea.form-control {
+textarea {
+    width: 100%;
     resize: vertical;
-    min-height: 100px;
+    min-height: 180px;
 }
 
-/* ===== BUTTONS (Bootstrap Classes) ===== */
-.btn {
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+button {
     flex: 1;
-    padding: 0.8rem 1.5rem;
+    padding: 1rem;
     font-size: 1rem;
     font-weight: 700;
-    border-radius: 8px;
-    font-family: 'Poppins', sans-serif;
-    transition: all 0.3s;
     border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
 }
 
-.btn-submit {
+button[type="submit"] {
     background: linear-gradient(135deg, var(--gold), var(--rose));
     color: var(--dark);
 }
 
-.btn-submit:hover {
-    background: linear-gradient(135deg, var(--gold), var(--rose));
-    color: var(--dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(212, 175, 122, 0.3);
-}
-
-.btn-reset {
+button[type="reset"] {
     background: linear-gradient(135deg, var(--teal), var(--purple));
     color: var(--dark);
 }
 
-.btn-reset:hover {
-    background: linear-gradient(135deg, var(--teal), var(--purple));
-    color: var(--dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(79, 179, 169, 0.3);
-}
-
-/* ===== FOOTER ===== */
 footer {
     background: linear-gradient(135deg, var(--gold), var(--teal), var(--purple), var(--rose));
     color: var(--dark);
@@ -310,9 +283,7 @@ footer {
     font-weight: 500;
 }
 
-footer p { 
-    margin: 0.3rem 0; 
-}
+footer p { margin: 0.3rem 0; }
 
 .social-links {
     display: flex;
@@ -331,32 +302,30 @@ footer p {
     background: rgba(255, 255, 255, 0.2);
     color: var(--dark);
     text-decoration: none;
-    transition: all 0.3s;
 }
 
-.social-links a:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.1);
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
     header h1 { font-size: 2rem; }
-    header p { font-size: 1rem; }
+    nav ul { gap: 1rem; }
     section { padding: 1.5rem; }
     .info-section { grid-template-columns: 1fr; }
     #profile img { width: 140px; height: 140px; }
-    .table { font-size: 0.9rem; }
+    table { font-size: 0.9rem; }
+    th, td { padding: 0.7rem; }
+    .button-group { flex-direction: column; }
+    button { width: 100%; }
 }
 
 @media (max-width: 480px) {
     header h1 { font-size: 1.5rem; }
     header p { font-size: 0.95rem; }
+    nav a { font-size: 0.8rem; }
     section h2 { font-size: 1.4rem; }
     #profile img { width: 120px; height: 120px; }
     #profile h3 { font-size: 1.5rem; }
     #skills li { padding: 0.6rem 1rem; font-size: 0.85rem; }
     #links ul { flex-direction: column; }
     #links a { width: 100%; }
-    .table { font-size: 0.8rem; }
+    table { font-size: 0.8rem; }
+    button { padding: 0.8rem; }
 }
